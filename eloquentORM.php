@@ -49,7 +49,8 @@ $users = User::distinct()->get();
 
 <!-- WHERE -->
 
-
+$user = User::where('id',1);
+$user = USer::find(1)
 
 $users = User::where([['status', '=', '1'],['subscribed', '<>', '1']])->get();
 
