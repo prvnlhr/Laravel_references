@@ -182,3 +182,19 @@ $users = User::where([['status', '=', '1'],['subscribed', '<>', '1']])->get();
     User::decrement('votes');
 
     User::decrement('votes', 5);
+
+
+    <!-- On to Many relation retrieving -->
+
+    student -> city
+    city ->[stud1,stud2,stud3...]
+
+    So the relation between city and students is hasMany, One city hasMany students.
+
+    $city = City::find($city_id);
+    $students = $city->students;
+
+    OR
+
+    $city = City::where('id', $city_id)->get();
+    $students = Student:: whereBelongsTo($city)->get();
